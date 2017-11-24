@@ -1,0 +1,14 @@
+{
+  "name": "simpleweb-js-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha src/*.js"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*",
+    "selenium-webdriver": "*",
+    "chromedriver": "^2.33.2"
+  }
+}
