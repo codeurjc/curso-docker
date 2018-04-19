@@ -28,11 +28,17 @@ public class AnuncioTest {
 	public static void setupClass() {
 
 		String sutHost = System.getenv("ET_SUT_HOST");
+		String sutPort = System.getenv("ET_SUT_PORT");
 		if (sutHost == null) {
-			sutURL = "http://localhost:8080/";
-		} else {
-			sutURL = "http://" + sutHost + ":8080/";
+			sutHost = "localhost";
 		}
+
+		if (sutPort == null) {
+			sutPort = "8080";
+		}
+
+		sutURL = "http://" + sutHost + ":" + sutPort + "/";
+		
 		System.out.println("App url: " + sutURL);
 
 		eusURL = System.getenv("ET_EUS_API");
