@@ -4,8 +4,10 @@ web:
     - "8080:8080"
   links:
     - db
+  environment:
+    - SPRING_DATASOURCE_URL=jdbc:mysql://db/test
 db:
   environment:
     - MYSQL_ROOT_PASSWORD=pass
     - MYSQL_DATABASE=test
-  image: mysql
+  image: mysql:5.6
