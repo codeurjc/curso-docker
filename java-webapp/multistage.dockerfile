@@ -1,4 +1,4 @@
-FROM maven:3-jdk-8-alpine as builder
+FROM maven:3.3-jdk-8 as builder
 COPY * /project/
 WORKDIR /project
 RUN mvn package
