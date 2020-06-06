@@ -1,5 +1,6 @@
 FROM maven:3.3-jdk-8 as builder
-COPY * /project/
+COPY /src /project/src
+COPY pom.xml /project/
 WORKDIR /project
 RUN mvn package
 
