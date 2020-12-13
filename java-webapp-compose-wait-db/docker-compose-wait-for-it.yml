@@ -1,0 +1,14 @@
+web:
+  build: ./wait-for-it.dockerfile
+  ports:
+    - "8080:8080"
+  links:
+    - db
+  environment:
+    - SPRING_DATASOURCE_URL=jdbc:mysql://db/test
+  command: ["./wait-for-it.sh", "db:3306", "--", "java", "-jar", "app.jar"]
+db:
+  image: mysql:5.7
+  environment:
+    - MYSQL_ROOT_PASSWORD=pass
+    - MYSQL_DATABASE=test
