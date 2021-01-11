@@ -1,14 +1,18 @@
-web:
-  build: ./on-failure.dockerfile
-  restart: on-failure
-  ports:
-    - "8080:8080"
-  links:
-    - db
-  environment:
-    - SPRING_DATASOURCE_URL=jdbc:mysql://db/test
-db:
-  image: mysql:5.7
-  environment:
-    - MYSQL_ROOT_PASSWORD=pass
-    - MYSQL_DATABASE=test
+version: "3"
+services: 
+  web:
+    build: 
+      context: .
+      dockerfile: on-failure.Dockerfile
+    restart: on-failure
+    ports:
+      - "8080:8080"
+    links:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db/test
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass
+      - MYSQL_DATABASE=test
